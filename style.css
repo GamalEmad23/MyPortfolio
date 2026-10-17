@@ -1,0 +1,62 @@
+.glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.05);
+        }
+        .dark .glass-card {
+            background: rgba(15, 23, 42, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #2563eb 0%, #00d2b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .dark .gradient-text {
+            background: linear-gradient(135deg, #3b82f6 0%, #00d2b8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .bg-grid-pattern {
+            background-size: 32px 32px;
+            background-image: radial-gradient(circle, rgba(0, 0, 0, 0.06) 1px, transparent 1px);
+        }
+        .dark .bg-grid-pattern {
+            background-image: radial-gradient(circle, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+        }
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.35; transform: scale(1); }
+            50% { opacity: 0.75; transform: scale(1.06); }
+        }
+        .animate-pulse-glow {
+            animation: pulse-glow 7s infinite ease-in-out;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f8fafc;
+        }
+        .dark ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        .dark ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #2563eb;
+        }
+        html[dir="rtl"] body { font-family: Tahoma, Arial, sans-serif; }
+        html[dir="rtl"] #about .space-y-6 { text-align: right; }
+        html[dir="rtl"] #about .flex.items-center.gap-2 { flex-direction: row-reverse; }
+        html[dir="rtl"] #about .lg\:col-span-7 { text-align: right; }
