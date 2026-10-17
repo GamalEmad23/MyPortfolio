@@ -149,3 +149,82 @@ a:hover { transform: none !important; }
     #about { padding-top: 2rem; }
     #about h1 { font-size: clamp(2.5rem, 12vw, 3.6rem); }
 }
+/* Distinctive portfolio direction: editorial light canvas with a deep green hero */
+:root { --ink: #18241e; --paper: #f4f3ed; --forest: #17392d; --leaf: #d8ed68; --line: #d9ded7; }
+html:not(.dark) body { background: var(--paper) !important; color: var(--ink) !important; }
+html.dark body { background: #101714 !important; color: #edf0e8 !important; }
+html:not(.dark) body > header { background: rgba(244,243,237,.97) !important; border-color: #d9ded7 !important; }
+html.dark body > header { background: rgba(16,23,20,.97) !important; border-color: #2b3931 !important; }
+
+/* The introduction becomes a clear, high-contrast personal statement. */
+#about {
+    max-width: none !important;
+    width: 100%;
+    margin: 0;
+    padding: clamp(4rem, 8vw, 7rem) max(1.5rem, calc((100% - 72rem) / 2)) !important;
+    background: var(--forest) !important;
+    color: #f4f3ed !important;
+    border-bottom: 5px solid var(--leaf);
+}
+#about > div { max-width: 72rem; margin-inline: auto; }
+#about h1 { color: #f4f3ed !important; font-family: Inter, Arial, sans-serif; font-size: clamp(3.3rem, 7vw, 5.8rem) !important; line-height: .98 !important; letter-spacing: -.065em; }
+#about .gradient-text { color: var(--leaf) !important; -webkit-text-fill-color: var(--leaf) !important; }
+#about p, #about .text-slate-600, #about .text-slate-700,
+#about .text-slate-500, #about .text-slate-400 { color: #d0d9d1 !important; }
+#about .text-slate-900, #about .text-slate-100 { color: #f4f3ed !important; }
+#about .glass-card { background: transparent !important; border-color: rgba(244,243,237,.24) !important; box-shadow: none !important; }
+#about .inline-flex.rounded-full { border-radius: 4px !important; padding-inline: 0 !important; border: 0 !important; }
+#about .group > .absolute { display: none !important; }
+#about [class*="w-72"][class*="h-[430px]"] {
+    width: min(100%, 22rem) !important;
+    height: 32rem !important;
+    border: 1px solid rgba(244,243,237,.28) !important;
+    border-radius: 12px !important;
+    background: #203d32 !important;
+    box-shadow: 0 24px 55px rgba(0,0,0,.24) !important;
+}
+#about img { object-position: center 14% !important; }
+#about .bg-gradient-to-t { background-image: linear-gradient(to top, rgba(10,20,15,.68), transparent 52%) !important; }
+#about a.bg-gradient-to-r { background: var(--leaf) !important; color: #17251e !important; box-shadow: none !important; }
+#about a.glass-card { border: 1px solid rgba(244,243,237,.42) !important; color: #f4f3ed !important; }
+#about .border-t { border-color: rgba(244,243,237,.22) !important; }
+
+/* Flat, well-defined surfaces replace the repeated glass-card treatment. */
+.glass-card, .dark .glass-card, html:not(.dark) .glass-card, html.dark .glass-card {
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 1px 2px rgba(22,35,27,.05) !important;
+}
+html:not(.dark) .glass-card { background: #fffefa !important; border-color: var(--line) !important; }
+html.dark .glass-card { background: #18211c !important; border-color: #303c34 !important; }
+#about .glass-card { background: transparent !important; }
+html:not(.dark) .bg-grid-pattern { background-image: none !important; }
+.bg-grid-pattern { background-image: none !important; }
+body > .fixed { display: none !important; }
+.animate-pulse-glow, .animate-ping { animation: none !important; }
+
+h1, h2, h3 { font-family: Inter, Arial, sans-serif !important; letter-spacing: -.035em !important; }
+html[dir="rtl"] h1, html[dir="rtl"] h2, html[dir="rtl"] h3 { font-family: Tahoma, Arial, sans-serif !important; letter-spacing: 0 !important; }
+html:not(.dark) .gradient-text { background: none !important; -webkit-text-fill-color: #28634d !important; }
+html.dark .gradient-text { background: none !important; -webkit-text-fill-color: #d8ed68 !important; }
+.bg-gradient-to-r, .bg-gradient-to-br, .bg-gradient-to-tr { background-image: none !important; }
+html:not(.dark) .bg-gradient-to-r, html:not(.dark) .bg-gradient-to-br, html:not(.dark) .bg-gradient-to-tr { background-color: #28634d !important; }
+html:not(.dark) .text-brand-600, html:not(.dark) .text-brand-700 { color: #28634d !important; }
+html.dark .text-brand-400 { color: #d8ed68 !important; }
+html:not(.dark) section[id] { border-color: #d9ded7 !important; }
+html:not(.dark) #experience, html:not(.dark) #projects, html:not(.dark) #skills, html:not(.dark) #contact { background-color: transparent; }
+.rounded-3xl { border-radius: 12px !important; }
+.rounded-2xl { border-radius: 10px !important; }
+a:hover { transform: none !important; }
+#about .group:hover img { transform: none !important; }
+
+@media (max-width: 900px) {
+    #about { padding: 4rem 1.5rem !important; }
+    #about > div { gap: 3rem; }
+}
+@media (max-width: 640px) {
+    #about { padding: 3rem 1.25rem !important; }
+    #about h1 { font-size: clamp(3rem, 13vw, 4.2rem) !important; }
+    #about [class*="w-72"][class*="h-[430px]"] { height: 29rem !important; }
+}
