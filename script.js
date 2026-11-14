@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const themeToggleBtn = document.getElementById('theme-toggle');
         
         // Initialize Theme from LocalStorage or System Preference
-        if (localStorage.getItem('theme') !== 'light') {
+        if (localStorage.getItem('theme') === 'dark') {
             document.documentElement.classList.add('dark');
         } else {
             document.documentElement.classList.remove('dark');
