@@ -1,98 +1,62 @@
-tailwind.config = {
-            darkMode: 'class',
-            theme: {
-                extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                    },
-                    colors: {
-                        brand: {
-                            50: '#eff6ff',
-                            100: '#dbeafe',
-                            400: '#60a5fa',
-                            500: '#3b82f6',
-                            600: '#2563eb',
-                            700: '#1d4ed8',
-                            accent: '#00d2b8',
-                        }
-                    }
-                }
-            }
-        }
-
 document.addEventListener('DOMContentLoaded', () => {
-// Dark / Light Theme Toggler Logic
-        const themeToggleBtn = document.getElementById('theme-toggle');
-        
-        // Initialize Theme from LocalStorage or System Preference
-        if (localStorage.getItem('theme') !== 'light') {
-            document.documentElement.classList.add('dark');
-        } else {
-            document.documentElement.classList.remove('dark');
-        }
-
-        themeToggleBtn.addEventListener('click', () => {
-            if (document.documentElement.classList.contains('dark')) {
-                document.documentElement.classList.remove('dark');
-                localStorage.setItem('theme', 'light');
-            } else {
-                document.documentElement.classList.add('dark');
-                localStorage.setItem('theme', 'dark');
-            }
-        });
-
-        // Mobile Navigation Toggle Logic
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
-        // Close mobile menu on link click
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        });
-
-        // English / Arabic language toggle
-        const translations = {
-            "About":"نبذة عني", "Experience":"الخبرات", "Projects":"المشاريع", "Skills":"المهارات", "Contact":"تواصل معي", "Resume":"السيرة الذاتية", "Get Resume":"تحميل السيرة الذاتية",
-            "Available for Mobile App Opportunities":"متاح لفرص تطوير تطبيقات الهاتف", "Hi, I'm ":"مرحبًا، أنا ", "Flutter Developer | Mobile Application Engineer":"مطور Flutter | مهندس تطبيقات الهاتف", "Clean Architecture":"البنية النظيفة",
-            "Mobile application developer specializing in Flutter with hands-on experience building scalable, production-ready apps using ":"مطور تطبيقات هاتف متخصص في Flutter، ولدي خبرة عملية في بناء تطبيقات قابلة للتوسع وجاهزة للإنتاج باستخدام ", ". Proficient in Firebase services, RESTful API integration, and state management solutions including Cubit (BLOC) & Provider. Fast learner who thrives under pressure with a passion for clean, maintainable code and polished, responsive user interfaces.":". أجيد خدمات Firebase ودمج REST APIs وإدارة الحالة باستخدام Cubit (BLOC) وProvider. أتعلم بسرعة وأعمل بكفاءة تحت الضغط، وأهتم بكتابة كود واضح وسهل الصيانة وتصميم واجهات متجاوبة ومتقنة.",
-            "CS Major":"طالب علوم حاسب", "Class of 2027":"دفعة 2027", "DEPI & NTI":"DEPI وNTI", "Trained Engineer":"مهندس متدرب", "Clean Code":"كود نظيف", "Bloc & Cubit Expert":"خبير Bloc وCubit", "View My Projects":"شاهد مشاريعي", "Get In Touch":"تواصل معي", "Connect:":"تابعني:", "DEPI & NTI Trainee":"متدرب في DEPI وNTI",
-            "Track Record":"المسيرة المهنية", "Experience & Education":"الخبرات والتعليم", "Practical engineering internships and academic background.":"خبرات التدريب العملي والخلفية الأكاديمية.", "Flutter Developer Intern":"متدرب تطوير Flutter", "Practical Training":"تدريب عملي", "Practical Flutter training focused on cross-platform mobile development, modern app architecture, and Agile team practices.":"تدريب عملي على Flutter يركز على تطوير تطبيقات متعددة المنصات، وبنية التطبيقات الحديثة، وأساليب العمل الرشيق.",
-            "Developed cross-platform mobile applications using Flutter and Dart.":"طورت تطبيقات هاتف متعددة المنصات باستخدام Flutter وDart.", "Integrated RESTful APIs and managed state using modern Flutter architectures (Cubit / Bloc / Provider).":"دمجت REST APIs وأدرت الحالة باستخدام أنماط Flutter الحديثة (Cubit وBloc وProvider).", "Worked with Firebase services including Authentication, Cloud Firestore, Storage, and Cloud Messaging.":"استخدمت خدمات Firebase، ومنها المصادقة وCloud Firestore والتخزين والرسائل السحابية.", "Applied Git/GitHub for version control and collaborative team development.":"استخدمت Git وGitHub لإدارة الإصدارات والعمل الجماعي.", "Built responsive UI designs and optimized app performance across Android and iOS platforms.":"أنشأت واجهات متجاوبة وحسنت أداء التطبيقات على Android وiOS.",
-            "Flutter Developer Trainee":"متدرب Flutter", "Intensive Track":"مسار مكثف", "Completed an intensive Technical Track covering deep Flutter & Dart development.":"أكملت مسارًا تقنيًا مكثفًا في تطوير Flutter وDart.", "Completed a Non-Technical Track focused on Freelancing Skills, business negotiation, and professional communication.":"أكملت مسارًا غير تقني ركز على العمل الحر والتفاوض والتواصل المهني.", "Built real-world mini-projects applying Clean Architecture and industry best practices.":"أنشأت مشاريع تطبيقية باستخدام Clean Architecture وأفضل ممارسات المجال.", "Practiced agile workflows, code review, and collaborative development.":"تدربت على أساليب العمل الرشيق ومراجعة الكود والتطوير التعاوني.",
-            "Bachelor's Degree in Computer Science":"بكالوريوس علوم الحاسب", "Class of 2027":"دفعة 2027", "Specializing in Computer Science with focus on Object-Oriented Programming (OOP), Data Structures & Algorithms, Software Engineering principles, and System Design.":"أدرس علوم الحاسب مع التركيز على البرمجة كائنية التوجه وهياكل البيانات والخوارزميات ومبادئ هندسة البرمجيات وتصميم الأنظمة.",
-            "Portfolio Work":"أعمالي", "Featured Mobile Projects":"أبرز مشاريع الهاتف", "Real-world Flutter applications built with Clean Architecture & modern APIs.":"تطبيقات Flutter عملية مبنية باستخدام Clean Architecture وواجهات API حديثة.", "DEPI Graduation Project":"مشروع تخرج DEPI", "Smart recycling platform with rewards, achievements, and environmental impact tracking. Built to encourage community recycling through gamification and interactive center discovery.":"منصة ذكية لإعادة التدوير تتضمن مكافآت وإنجازات وتتبعًا للأثر البيئي، وتشجع المجتمع على إعادة التدوير عبر التلعيب واكتشاف مراكز التدوير.", "Built interactive features for locating recycling centers via Google Maps.":"طورت ميزات تفاعلية للعثور على مراكز التدوير عبر خرائط Google.", "Implemented rewards, levels, badges, and environmental progress statistics.":"أضفت المكافآت والمستويات والشارات وإحصاءات التقدم البيئي.", "Added educational content & admin dashboard management functionalities.":"أضفت محتوى تعليميًا وميزات لإدارة لوحة التحكم.", "Source Code & Demo":"الكود المصدري والعرض", "GitHub Repo":"مستودع GitHub", "Machine Learning Mobile App":"تطبيق تعلم آلي للهاتف", "Cross-platform mobile application connected to a FastAPI machine learning backend, allowing users to upload datasets, train models, monitor status, and inspect prediction outcomes in real-time.":"تطبيق هاتف متعدد المنصات متصل بخلفية تعلم آلي باستخدام FastAPI، يتيح رفع البيانات وتدريب النماذج ومتابعة حالتها واستعراض نتائج التنبؤ مباشرة.", "Built responsive mobile screens for managing datasets and predictions.":"أنشأت شاشات متجاوبة لإدارة مجموعات البيانات والتنبؤات.", "Integrated FastAPI endpoints for model training, status checking, and results display.":"دمجت نقاط FastAPI لتدريب النماذج ومتابعة الحالة وعرض النتائج.", "Implemented clean UI flow with seamless asynchronous state management.":"أنشأت تجربة استخدام واضحة مع إدارة سلسة للحالة غير المتزامنة.",
-            "Technical Arsenal":"المهارات التقنية", "Skills & Capabilities":"المهارات والقدرات", "Technologies, tools, architectures, and soft skills I bring to teams.":"التقنيات والأدوات والبنى والمهارات الشخصية التي أقدمها للفريق.", "Languages & Frameworks":"اللغات وأطر العمل", "State Management":"إدارة الحالة", "Backend & Services":"الخلفية والخدمات", "Architecture":"البنية البرمجية", "Tools & Workflow":"الأدوات وسير العمل", "Soft Skills & Languages":"المهارات الشخصية واللغات", "Teamwork":"العمل الجماعي", "Problem Solving":"حل المشكلات", "Work Under Pressure":"العمل تحت الضغط", "Arabic (Native)":"العربية (اللغة الأم)", "English (Conversation)":"الإنجليزية (محادثة)",
-            "Get In Touch":"تواصل معي", "Let's Build Something Great Together":"لنبنِ شيئًا رائعًا معًا", "I am available for full-time Flutter roles, internships, and freelance mobile application engineering projects. Reach out directly via email or phone!":"أنا متاح لوظائف Flutter بدوام كامل والتدريب ومشاريع تطوير تطبيقات الهاتف المستقلة. تواصل معي مباشرة عبر البريد الإلكتروني أو الهاتف!", "Direct Email":"البريد الإلكتروني", "Phone / WhatsApp":"الهاتف / واتساب", "Location":"الموقع", "Menoufia, Egypt":"المنوفية، مصر", "Send an Email":"أرسل بريدًا إلكترونيًا", "Connect on LinkedIn":"تواصل عبر LinkedIn", "Check GitHub Profile":"شاهد حساب GitHub", "All rights reserved.":"جميع الحقوق محفوظة.", "Back to Top ":"العودة إلى الأعلى "
-        };
-        const languageToggle = document.getElementById('language-toggle');
-        const textNodes = [];
-        const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
-        while (walker.nextNode()) {
-            const node = walker.currentNode;
-            if (node.nodeValue.trim()) textNodes.push({ node, original: node.nodeValue });
-        }
-        const englishToArabic = new Map(Object.entries(translations));
-        const arabicToEnglish = new Map(Object.entries(translations).map(([en, ar]) => [ar, en]));
-        function setLanguage(language) {
-            const arabic = language === 'ar';
-            document.documentElement.lang = arabic ? 'ar' : 'en';
-            document.documentElement.dir = arabic ? 'rtl' : 'ltr';
-            textNodes.forEach(({ node }) => {
-                const value = node.nodeValue;
-                const trimmed = value.trim();
-                const translated = arabic ? englishToArabic.get(trimmed) : arabicToEnglish.get(trimmed);
-                if (translated) node.nodeValue = value.replace(trimmed, translated);
-            });
-            document.title = arabic ? 'جمال عماد | مطور Flutter ومهندس تطبيقات الهاتف' : 'Gamal Emad | Flutter Developer & Mobile Engineer';
-            languageToggle.title = arabic ? 'تغيير اللغة / Change language' : 'Change language / تغيير اللغة';
-            localStorage.setItem('language', language);
-        }
-        languageToggle.addEventListener('click', () => setLanguage(document.documentElement.lang === 'ar' ? 'en' : 'ar'));
-        if (localStorage.getItem('language') === 'ar') setLanguage('ar');
+  const root = document.documentElement;
+  const menuButton = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const themeButton = document.getElementById('theme-toggle');
+  const languageButton = document.getElementById('language-toggle');
+  if (localStorage.getItem('theme') === 'light') root.classList.remove('dark');
+  else root.classList.add('dark');
+  themeButton.addEventListener('click', () => {
+    root.classList.toggle('dark');
+    localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light');
+  });
+  menuButton.addEventListener('click', () => {
+    const open = menu.classList.toggle('open');
+    menuButton.setAttribute('aria-expanded', String(open));
+  });
+  menu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => {
+    menu.classList.remove('open');
+    menuButton.setAttribute('aria-expanded', 'false');
+  }));
+  const translations = new Map(Object.entries({
+    'HOME':'الرئيسية','ABOUT':'عني','SERVICES':'الخدمات','SKILLS':'المهارات','PORTFOLIO':'أعمالي','JOURNEY':'المسيرة','CONTACT':'تواصل معي','ABOUT ME':'نبذة عني','Home':'الرئيسية','About':'نبذة عني','Services':'الخدمات','Skills':'المهارات','Portfolio':'أعمالي','Journey':'المسيرة','Contact':'تواصل معي',
+    'LET’S TALK':'لنتحدث','SERVICES':'الخدمات','MY SKILLS':'مهاراتي','PORTFOLIO':'معرض الأعمال','MY PROCESS':'منهجي','EDUCATION & TRAINING':'التعليم والتدريب','CONTACT':'تواصل معي',
+    'What I Can':'ما الذي يمكنني','Build For You':'بناؤه لك','Mobile development from the first sketch to a dependable release.':'تطوير تطبيقات الهاتف من أول تصور حتى إصدار موثوق.',
+    'Flutter App Development':'تطوير تطبيقات Flutter','Cross-platform Android and iOS apps built in Flutter and Dart.':'تطبيقات Android وiOS متعددة المنصات باستخدام Flutter وDart.',
+    'App Architecture':'بنية التطبيقات','Maintainable structure with Clean Architecture and clear feature boundaries.':'بنية سهلة الصيانة باستخدام Clean Architecture وتقسيم واضح للميزات.',
+    'APIs & Firebase':'واجهات API وFirebase','REST API integration, authentication, Firestore, storage, and notifications.':'دمج REST API والمصادقة وFirestore والتخزين والإشعارات.',
+    'Responsive UI':'واجهات متجاوبة','Carefully crafted mobile screens that feel consistent and intuitive.':'شاشات هاتف مصممة بعناية لتبدو متناسقة وسهلة الاستخدام.',
+    'Technologies I':'تقنيات','Work With':'أعمل بها','A practical toolkit for building, integrating, and shipping mobile apps.':'أدوات عملية لبناء تطبيقات الهاتف ودمجها وإطلاقها.',
+    'Selected':'مشاريع','Projects':'مختارة','Mobile projects I've been building with Flutter.':'تطبيقات هاتف أعمل عليها باستخدام Flutter.','MORE ON GITHUB ↗':'المزيد على GitHub ↗',
+    'VIEW PROJECT ↗':'شاهد المشروع ↗','From Idea to':'من الفكرة إلى','App Store':'التطبيق','A clear workflow keeps the product focused and code maintainable.':'سير عمل واضح يحافظ على تركيز المنتج وسهولة صيانة الكود.',
+    'DISCOVER':'اكتشاف','Understand users, goals, and core requirements.':'فهم المستخدمين والأهداف ومتطلبات التطبيق الأساسية.','PLAN':'تخطيط','Shape features, data, and clean architecture.':'تحديد الميزات والبيانات والبنية النظيفة.','DESIGN':'تصميم','Create responsive screens and clear user flows.':'إنشاء شاشات متجاوبة وتدفقات استخدام واضحة.','DEVELOP':'تطوير','Build in Flutter, connect services, and refine.':'التطوير باستخدام Flutter وربط الخدمات وتحسين التفاصيل.','SHIP':'إطلاق','Polish the release and plan the next iteration.':'تجهيز الإصدار وصقله والتخطيط للتطوير التالي.',
+    'My':'محطات في','So Far':'من مسيرتي','Milestones from my training and Computer Science studies.':'محطات من تدريبي ودراستي لعلوم الحاسب.','Flutter Developer Intern':'متدرب تطوير Flutter','Flutter development, modern architecture, Firebase, API integration, and agile practices.':'تطوير Flutter والبنية الحديثة وFirebase وواجهات API والعمل ضمن فريق رشيق.','Flutter Developer Trainee':'متدرب Flutter','Technical Flutter and Dart training plus freelancing and collaborative project work.':'تدريب تقني على Flutter وDart والعمل الحر وتنفيذ المشاريع بصورة تعاونية.','BSc in Computer Science':'بكالوريوس علوم الحاسب','Software engineering, OOP, data structures and algorithms, and system design.':'هندسة البرمجيات والبرمجة كائنية التوجه وهياكل البيانات والخوارزميات وتصميم الأنظمة.',
+    "Let's Build Something":'لنبنِ شيئًا','Great Together':'رائعًا معًا','Looking for a Flutter developer for your next project or team? I'd be glad to hear what you're building.':'هل تبحث عن مطور Flutter لمشروعك القادم أو لفريقك؟ يسعدني معرفة ما تعملون عليه.',
+    'EMAIL ME':'راسلني','CALL / WHATSAPP':'اتصال / واتساب','Menoufia, Egypt':'المنوفية، مصر','AVAILABLE FOR OPPORTUNITIES':'متاح لفرص العمل','All rights reserved.':'جميع الحقوق محفوظة.','BACK TO TOP ↑':'للأعلى ↑'
+  }));
+  const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+  const nodes = [];
+  while (walker.nextNode()) {
+    const node = walker.currentNode;
+    if (node.parentElement?.closest('[data-en][data-ar]')) continue;
+    const key = node.nodeValue.trim();
+    if (translations.has(key)) nodes.push({ node, key, prefix: node.nodeValue.match(/^\s*/)[0], suffix: node.nodeValue.match(/\s*$/)[0] });
+  }
+  function setLanguage(language) {
+    const arabic = language === 'ar';
+    root.lang = arabic ? 'ar' : 'en';
+    root.dir = arabic ? 'rtl' : 'ltr';
+    document.querySelectorAll('[data-en][data-ar]').forEach(element => {
+      element.innerHTML = element.dataset[arabic ? 'ar' : 'en'];
+    });
+    nodes.forEach(({ node, key, prefix, suffix }) => {
+      node.nodeValue = prefix + (arabic ? translations.get(key) : key) + suffix;
+    });
+    languageButton.querySelector('span').textContent = arabic ? 'EN' : 'AR';
+    languageButton.title = arabic ? 'Change language' : 'تغيير اللغة';
+    document.title = arabic ? 'جمال عماد — مطور Flutter' : 'Gamal Emad — Flutter Developer';
+    localStorage.setItem('language', language);
+  }
+  languageButton.addEventListener('click', () => setLanguage(root.lang === 'ar' ? 'en' : 'ar'));
+  setLanguage(localStorage.getItem('language') === 'ar' ? 'ar' : 'en');
 });
