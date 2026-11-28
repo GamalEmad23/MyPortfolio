@@ -2,7 +2,7 @@
 <html lang="en" class="scroll-smooth">
 <head>
 <meta charset="UTF-8">
-<script>try{var d=document.documentElement;if(localStorage.getItem("theme")!=="light")d.classList.add("dark");if(localStorage.getItem("language")==="ar"){d.lang="ar";d.dir="rtl"}}catch(e){}</script>
+<script>try{var d=document.documentElement;if(localStorage.getItem("theme")==="dark")d.classList.add("dark");if(localStorage.getItem("language")==="ar"){d.lang="ar";d.dir="rtl"}}catch(e){}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gamal Emad | Flutter Developer & Mobile Engineer</title>
 <meta name="description" content="Gamal Emad, Flutter developer and mobile application engineer. Clean Architecture, Firebase, REST APIs. Featured projects, experience and contact.">
@@ -10,21 +10,21 @@
 <meta property="og:image" content="assets/professional.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=7">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 <header class="top">
   <div class="wrap bar">
-    <a class="brand mono" href="#top">GE<span>/</span></a>
-    <nav class="nav mono">
-      <a href="#work"><i>01</i> <span data-i18n="nav_projects">Work</span></a>
-      <a href="#path"><i>02</i> <span data-i18n="nav_exp">Path</span></a>
-      <a href="#stack"><i>03</i> <span data-i18n="nav_skills">Stack</span></a>
-      <a href="#contact"><i>04</i> <span data-i18n="nav_contact">Contact</span></a>
+    <a class="brand" href="#top"><b>GE</b><span>Gamal Emad</span></a>
+    <nav class="nav">
+      <a href="#work"><span data-i18n="nav_projects">Work</span></a>
+      <a href="#path"><span data-i18n="nav_exp">Path</span></a>
+      <a href="#stack"><span data-i18n="nav_skills">Stack</span></a>
+      <a href="#contact"><span data-i18n="nav_contact">Contact</span></a>
     </nav>
     <div class="tools">
-      <button id="language-toggle" class="icon-btn mono" type="button" aria-label="Change language"><span class="lang-label">عربي</span></button>
+      <button id="language-toggle" class="icon-btn" type="button" aria-label="Change language"><span class="lang-label">عربي</span></button>
       <button id="theme-toggle" class="icon-btn" type="button" aria-label="Toggle theme"><svg class="i-moon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg><svg class="i-sun" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
       <a class="pill" href="mailto:gamalemad.dev@gmail.com" data-i18n="hire">Get in touch</a>
     </div>
@@ -34,34 +34,38 @@
 <main id="top">
 <section class="hero wrap">
   <div class="hero-main">
-    <p class="tag mono"><span class="blink"></span><span data-i18n="avail">Open to Flutter roles, internships and freelance work</span></p>
-    <h1 class="name"><span data-i18n="n1">Gamal</span><span class="outline" data-i18n="n2">Emad</span></h1>
-    <p class="role mono" data-i18n="role">Flutter Developer / Mobile Application Engineer</p>
+    <p class="tag"><span class="blink"></span><span data-i18n="avail">Open to Flutter roles, internships and freelance work</span></p>
+    <p class="hi"><span data-i18n="hi">Hi, I'm</span> <span data-i18n="n1">Gamal</span> <span data-i18n="n2">Emad</span></p>
+    <h1 class="name" data-i18n="h1">I build Flutter apps on <mark>Clean Architecture</mark>.</h1>
     <p class="lead" data-i18n="lead">I build Flutter apps on Clean Architecture, with Firebase and REST APIs behind them and Cubit (BLoC) or Provider keeping the state in order.</p>
     <div class="cta">
-      <a class="pill big" href="#work" data-i18n="cta_projects">See the work</a>
-      <a class="link-arrow" href="https://github.com/GamalEmad23" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
-      <a class="link-arrow" href="https://linkedin.com/in/gamal-emad-619768299" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+      <a class="btn primary" href="#work" data-i18n="cta_projects">See the work</a>
+      <a class="btn ghost" href="#contact" data-i18n="cta_contact">Get in touch</a>
     </div>
+    <ul class="stats">
+      <li><b data-i18n="f1_t">DEPI &amp; NTI</b><span data-i18n="f1_d">Flutter tracks completed</span></li>
+      <li><b data-i18n="f2_t">CS, 2027</b><span data-i18n="f2_d">Menofia University</span></li>
+      <li><b data-i18n="f3_t">Flutter · Dart</b><span data-i18n="f3_d">Cubit (BLoC), Provider</span></li>
+    </ul>
   </div>
   <figure class="portrait">
-    <div class="block-accent"></div>
+    
     <img src="assets/professional.jpg" alt="Gamal Emad" width="420" height="520">
-    <figcaption class="mono"><span>Gamal Emad Abdel Fattah</span><span data-i18n="loc_v">Menoufia, Egypt</span></figcaption>
+    <figcaption><span>Gamal Emad Abdel Fattah</span><span data-i18n="loc_v">Menoufia, Egypt</span></figcaption>
   </figure>
 </section>
 
-<section class="ticker mono" aria-label="Stack">
+<section class="ticker" aria-label="Stack">
   <div class="wrap"><span>Flutter</span><span>Dart</span><span>Cubit / BLoC</span><span>Provider</span><span>Firebase</span><span>REST APIs</span><span>FastAPI</span><span>Clean Architecture</span></div>
 </section>
 
 <section class="wrap arch" aria-label="Architecture">
   <div class="arch-head">
-    <p class="kicker mono">/ <span data-i18n="k_arch">how I build</span></p>
+    <p class="kicker">/ <span data-i18n="k_arch">how I build</span></p>
     <h2 data-i18n="h_arch">One app, four clear layers.</h2>
     <p class="lead small" data-i18n="arch_p">The structure I apply across my Flutter projects, from the screen down to the data source.</p>
   </div>
-  <ol class="layers mono">
+  <ol class="layers">
     <li><b>01</b><div><strong data-i18n="l1">Presentation</strong><span data-i18n="l1d">Responsive Flutter UI</span></div></li>
     <li><b>02</b><div><strong data-i18n="l2">State</strong><span>Cubit (BLoC) · Provider</span></div></li>
     <li><b>03</b><div><strong data-i18n="l3">Repository</strong><span data-i18n="l3d">Clean Architecture · Repository pattern</span></div></li>
@@ -70,16 +74,16 @@
 </section>
 
 <section id="work" class="wrap block">
-  <div class="head"><p class="kicker mono">/ 01</p><h2 data-i18n="h_projects">Selected work</h2></div>
+  <div class="head"><p class="kicker">/ 01</p><h2 data-i18n="h_projects">Selected work</h2></div>
 
   <article class="case">
-    <div class="case-no mono">01</div>
+    <div class="case-no">01</div>
     <div class="case-visual eco">
       <div class="eco-card">
         <img src="assets/7-ecocycle-icon.jpg" alt="EcoCycle app icon" width="84" height="84" loading="lazy">
         <div><strong>EcoCycle</strong><span data-i18n="eco_tag">Smart recycling app</span></div>
       </div>
-      <pre class="tree mono" aria-label="Feature-first folder structure">lib/
+      <pre class="tree" aria-label="Feature-first folder structure">lib/
   core/
   features/
     auth/
@@ -90,7 +94,7 @@
     admin_orders/</pre>
     </div>
     <div class="case-body">
-      <p class="meta mono"><span data-i18n="eco_kind">DEPI graduation project</span><span>03/2026 – 05/2026</span></p>
+      <p class="meta"><span data-i18n="eco_kind">DEPI graduation project</span><span>03/2026 – 05/2026</span></p>
       <h3>EcoCycle</h3>
       <p class="desc" data-i18n="eco_desc">A smart recycling platform with rewards, achievements and environmental impact tracking. Built to encourage community recycling through gamification and interactive center discovery.</p>
       <ul class="points">
@@ -99,24 +103,24 @@
         <li data-i18n="eco_3">Educational content and an admin dashboard for management.</li>
         <li data-i18n="eco_4">Feature-first project structure with Firebase backend.</li>
       </ul>
-      <ul class="chips mono"><li>Flutter</li><li>Dart</li><li>Firebase</li><li>BLoC</li><li>REST API</li></ul>
+      <ul class="chips"><li>Flutter</li><li>Dart</li><li>Firebase</li><li>BLoC</li><li>REST API</li></ul>
       <a class="link-arrow" href="https://github.com/GamalEmad23/EcoCycle" target="_blank" rel="noopener noreferrer"><span data-i18n="source">Source on GitHub</span> ↗</a>
     </div>
   </article>
 
   <article class="case flip">
-    <div class="case-no mono">02</div>
+    <div class="case-no">02</div>
     <div class="case-visual flow">
-      <p class="flow-title mono">Flutter app ⇄ FastAPI</p>
+      <p class="flow-title">Flutter app ⇄ FastAPI</p>
       <ol class="steps">
-        <li><span class="mono">01</span><b data-i18n="ml_s1">Upload dataset</b></li>
-        <li><span class="mono">02</span><b data-i18n="ml_s2">Train model</b></li>
-        <li><span class="mono">03</span><b data-i18n="ml_s3">Monitor status</b></li>
-        <li><span class="mono">04</span><b data-i18n="ml_s4">Inspect predictions</b></li>
+        <li><span >01</span><b data-i18n="ml_s1">Upload dataset</b></li>
+        <li><span >02</span><b data-i18n="ml_s2">Train model</b></li>
+        <li><span >03</span><b data-i18n="ml_s3">Monitor status</b></li>
+        <li><span >04</span><b data-i18n="ml_s4">Inspect predictions</b></li>
       </ol>
     </div>
     <div class="case-body">
-      <p class="meta mono"><span data-i18n="ml_kind">Machine learning mobile app</span><span>04/2026 – 05/2026</span></p>
+      <p class="meta"><span data-i18n="ml_kind">Machine learning mobile app</span><span>04/2026 – 05/2026</span></p>
       <h3>Flutter ML Prediction App</h3>
       <p class="desc" data-i18n="ml_desc">A cross-platform mobile app connected to a FastAPI machine learning backend. Users upload datasets, train models, monitor status and inspect prediction outcomes in real time.</p>
       <ul class="points">
@@ -124,12 +128,12 @@
         <li data-i18n="ml_2">FastAPI endpoints for model training, status checks and result display.</li>
         <li data-i18n="ml_3">Clean UI flow with asynchronous state management.</li>
       </ul>
-      <ul class="chips mono"><li>Flutter</li><li>Dart</li><li>FastAPI</li><li>REST API</li></ul>
+      <ul class="chips"><li>Flutter</li><li>Dart</li><li>FastAPI</li><li>REST API</li></ul>
       <a class="link-arrow" href="https://github.com/GamalEmad23/ml_model" target="_blank" rel="noopener noreferrer"><span data-i18n="source">Source on GitHub</span> ↗</a>
     </div>
   </article>
 
-  <div class="more mono">
+  <div class="more">
     <p data-i18n="more">More Flutter repositories</p>
     <ul>
       <li><a href="https://github.com/GamalEmad23/Huma-Tasks" target="_blank" rel="noopener noreferrer">Huma-Tasks</a></li>
@@ -142,20 +146,20 @@
 </section>
 
 <section id="path" class="wrap block">
-  <div class="head"><p class="kicker mono">/ 02</p><h2 data-i18n="h_exp">Path</h2></div>
+  <div class="head"><p class="kicker">/ 02</p><h2 data-i18n="h_exp">Path</h2></div>
   <ol class="path">
     <li>
-      <p class="when mono">2023 – 2027</p>
+      <p class="when">2023 – 2027</p>
       <h3 data-i18n="t3">B.Sc. in Computer Science</h3><p class="org" data-i18n="t3o">Faculty of Computers &amp; Information · Menofia University</p>
       <p data-i18n="t3d">Object-oriented programming, data structures and algorithms, software engineering and system design.</p>
     </li>
     <li>
-      <p class="when mono">10/2025 – 11/2025</p>
+      <p class="when">10/2025 – 11/2025</p>
       <h3 data-i18n="t2">Flutter Developer Trainee, NTI</h3><p class="org">National Telecommunication Institute (NTI) · Egypt</p>
       <p data-i18n="t2d">Intensive technical track in Flutter and Dart, plus a non-technical track in freelancing skills, negotiation and professional communication. Built mini-projects applying Clean Architecture.</p>
     </li>
     <li>
-      <p class="when mono">11/2025 – <span data-i18n="completed">Completed</span></p>
+      <p class="when">11/2025 – <span data-i18n="completed">Completed</span></p>
       <h3 data-i18n="t1">Flutter Development Track, DEPI</h3><p class="org">Digital Egypt Pioneers Initiative (DEPI) · Egypt</p>
       <p data-i18n="t1d">Practical Flutter training focused on cross-platform development, modern app architecture and Agile team practices. Worked with Cubit / Bloc / Provider, REST APIs, Firebase (Authentication, Cloud Firestore, Storage, Cloud Messaging) and Git/GitHub.</p>
     </li>
@@ -163,24 +167,24 @@
 </section>
 
 <section id="stack" class="wrap block">
-  <div class="head"><p class="kicker mono">/ 03</p><h2 data-i18n="h_skills">Stack</h2></div>
+  <div class="head"><p class="kicker">/ 03</p><h2 data-i18n="h_skills">Stack</h2></div>
   <dl class="skills">
-    <div><dt class="mono" data-i18n="s1">Languages &amp; frameworks</dt><dd>Dart · Flutter · Java · C++</dd></div>
-    <div><dt class="mono" data-i18n="s2">State management</dt><dd>Cubit (BLoC) · Provider</dd></div>
-    <div><dt class="mono" data-i18n="s3">Backend &amp; services</dt><dd>Firebase Auth · Cloud Firestore · Storage · FCM · RESTful APIs</dd></div>
-    <div><dt class="mono" data-i18n="s4">Architecture</dt><dd>Clean Architecture · Repository pattern · Modularization · OOP · Data structures</dd></div>
-    <div><dt class="mono" data-i18n="s5">Workflow</dt><dd>Git &amp; GitHub · Debugging · Performance optimization</dd></div>
-    <div><dt class="mono" data-i18n="s6">Languages</dt><dd data-i18n="s6d">Arabic (native) · English (conversational)</dd></div>
+    <div><dt  data-i18n="s1">Languages &amp; frameworks</dt><dd>Dart · Flutter · Java · C++</dd></div>
+    <div><dt  data-i18n="s2">State management</dt><dd>Cubit (BLoC) · Provider</dd></div>
+    <div><dt  data-i18n="s3">Backend &amp; services</dt><dd>Firebase Auth · Cloud Firestore · Storage · FCM · RESTful APIs</dd></div>
+    <div><dt  data-i18n="s4">Architecture</dt><dd>Clean Architecture · Repository pattern · Modularization · OOP · Data structures</dd></div>
+    <div><dt  data-i18n="s5">Workflow</dt><dd>Git &amp; GitHub · Debugging · Performance optimization</dd></div>
+    <div><dt  data-i18n="s6">Languages</dt><dd data-i18n="s6d">Arabic (native) · English (conversational)</dd></div>
   </dl>
 </section>
 
 <section id="contact" class="contact">
   <div class="wrap">
-    <p class="kicker mono">/ 04</p>
+    <p class="kicker">/ 04</p>
     <h2 class="big-h" data-i18n="h_contact">Let's build something together.</h2>
     <p class="lead" data-i18n="contact_p">Available for full-time Flutter roles, internships and freelance mobile projects.</p>
     <a class="mail" href="mailto:gamalemad.dev@gmail.com">gamalemad.dev@gmail.com</a>
-    <div class="contact-row mono">
+    <div class="contact-row">
       <a href="tel:+201019649483" dir="ltr">+20 101 964 9483</a>
       <a href="https://linkedin.com/in/gamal-emad-619768299" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
       <a href="https://github.com/GamalEmad23" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
@@ -190,7 +194,7 @@
 </section>
 </main>
 
-<footer class="wrap foot mono"><span>© 2026 Gamal Emad Abdel Fattah</span><a href="#top" data-i18n="top">Back to top ↑</a></footer>
+<footer class="wrap foot"><span>© 2026 Gamal Emad Abdel Fattah</span><a href="#top" data-i18n="top">Back to top ↑</a></footer>
 <script src="app.js"></script>
 </body>
 </html>
