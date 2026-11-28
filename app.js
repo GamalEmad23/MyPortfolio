@@ -1,5 +1,7 @@
 (function () {
   var AR = {
+    hi: "أهلاً، أنا",
+    h1: "أبني تطبيقات Flutter على <mark>Clean Architecture</mark>.",
     l4: "البيانات",
     l3d: "Clean Architecture · نمط Repository",
     l3: "المستودع",
