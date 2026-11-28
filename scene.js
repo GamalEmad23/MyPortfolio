@@ -119,13 +119,13 @@
     var x = c.getContext("2d");
     x.drawImage(photo, 0, 0, cw, ch);
     var data = x.getImageData(0, 0, cw, ch), d = data.data;
-    var fade = Math.max(8, Math.round(ch * 0.07));
+    var fade = Math.max(10, Math.round(ch * 0.17));
     for (var py = 0; py < ch; py++) {
       for (var px = 0; px < cw; px++) {
         var i = (py * cw + px) * 4;
         var dmin = 255 - Math.min(d[i], d[i + 1], d[i + 2]);
         var a = dmin <= 6 ? 0 : dmin >= 30 ? 1 : (dmin - 6) / 24;
-        if (a > 0 && py > ch - fade) a *= (ch - py) / fade;
+        if (a > 0 && py > ch - fade) { var k = (ch - py) / fade; a *= k * k * (3 - 2 * k); }
         d[i + 3] = Math.round(a * 255);
       }
     }
@@ -352,7 +352,7 @@
   register(phone(), { x: 2.2 * S, y: -.25 * S, z: .6, label: "phone", action: "phone", scale: .95 });
   register(pin(), { x: -2.3 * S, y: -.35 * S, z: 1.15, label: "pin", action: "spin", scale: .76 });
   register(star(), { x: 1.8 * S, y: -2.2 * S, z: 1.2, label: "star", action: "spin", scale: .78 });
-  register(db(), { x: -2.05 * S, y: -2.1 * S, z: .4, label: "db", action: "spin", scale: .7 });
+  register(db(), { x: -1.75 * S, y: -2.35 * S, z: 1.05, label: "db", action: "spin", scale: .72 });
   register(codeTile(), { x: .1 * S, y: 2.4 * S, z: .5, label: "code", action: "pop", scale: .68 });
   register(ring(), { x: 1.15 * S, y: 2.35 * S, z: .45, label: "ring", action: "spin", scale: .66 });
 
